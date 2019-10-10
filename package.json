@@ -1,0 +1,21 @@
+{
+    "name": "nss-map-creator",
+    "version": "1.0.0",
+    "description": "A map creator for NSS",
+    "main": "index.js",
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "javascript",
+        "electron",
+        "2D-map-editor",
+        "tile-editor"
+    ],
+    "author": "sitedevente",
+    "license": "ISC",
+    "dependencies": {
+        "electron": "^6.0.12"
+    }
+}
