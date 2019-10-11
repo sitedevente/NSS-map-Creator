@@ -1,0 +1,28 @@
+.sidebar {
+    padding: 20px;
+    display: grid;
+    gap: 5px;
+}
+
+.sidebar > img {
+    
+}
+
+@media only screen and (min-width: 800px){
+    .sidebar {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill, 1fr);
+        border-right: 3px solid darkslategray ;
+        border-radius: 30px;
+    }
+}
+
+@media only screen and (max-width: 800px){ 
+    .sidebar {
+        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+        grid-template-rows: 1fr;
+        border-bottom: 3px solid darkslategray ;
+    }
+    
+    
+}

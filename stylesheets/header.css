@@ -1,11 +1,16 @@
-body > header {
-    background-color: black;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-}
+@media only screen and (min-width: 800px){
 
-header > h1 {
-    color: blanchedalmond;
-    grid-column: 3/ 3;
-    font-size: 140%;
+    body > header {
+        background: rgba(0, 0, 0, 0.88);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    }
+
+    header > h1 {
+        filter: brightness(1.2);
+        color: blanchedalmond;
+        grid-column: 3/ 3;
+        font-size: 140%;
+    }
+
 }
