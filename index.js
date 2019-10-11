@@ -1,6 +1,11 @@
 const {app, BrowserWindow} = require('electron');
+const path = require('path');
 
-require('electron-reload')(__dirname);
+const dirUrl = app.getAppPath() ;
+const mainEntry = 'app.html';
+
+
+require('electron-reload')(dirUrl);
 
 app.on('ready', () =>{
     const win = new BrowserWindow({
@@ -14,7 +19,7 @@ app.on('ready', () =>{
     
     win.maximize()
     win.show()
-    win.loadFile('./app.html')
+    win.loadFile(path.join(dirUrl, mainEntry))
 })
 
 app.on('window-all-closed', () =>{
