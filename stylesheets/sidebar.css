@@ -1,28 +1,36 @@
 .sidebar {
-    padding: 20px;
+    padding-top: 5% ;
+    padding-left: 20%;
     display: grid;
-    gap: 5px;
+    gap: 2%;
+    overflow: auto;
 }
 
 .sidebar > img {
-    
+    max-height: 100%;
+    max-width: 100%;
 }
 
-@media only screen and (min-width: 800px){
+.sidebar > img:hover {
+    max-height: 105%;
+    max-width: 105%;
+    filter: brightness(1.30);
+    border: 1px solid red;
+}
+
+@media only screen and (min-width: 800px) {
     .sidebar {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(auto-fill, 1fr);
+        grid-template-columns: repeat(2, 60px);
+        grid-template-rows: repeat(auto-fill, 60px);
         border-right: 3px solid darkslategray ;
         border-radius: 30px;
     }
 }
 
-@media only screen and (max-width: 800px){ 
+@media only screen and (max-width: 800px) {
     .sidebar {
         grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
         grid-template-rows: 1fr;
         border-bottom: 3px solid darkslategray ;
     }
-    
-    
 }
