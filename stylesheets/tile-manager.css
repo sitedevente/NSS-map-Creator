@@ -12,6 +12,11 @@ main > div.cell {
     
 }
 
+main > div.cell > img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 main > div.cell:hover {
     border: 2px dashed red;
 }
