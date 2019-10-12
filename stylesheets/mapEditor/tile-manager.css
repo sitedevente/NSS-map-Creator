@@ -9,7 +9,6 @@ main {
 main > div.cell {
     background-color: wheat;
     border: 1px dashed black;
-    
 }
 
 main > div.cell > img {
@@ -17,6 +16,6 @@ main > div.cell > img {
     max-width: 100%;
 }
 
-main > div.cell:hover {
+main>div.cell:hover {
     border: 2px dashed red;
 }
