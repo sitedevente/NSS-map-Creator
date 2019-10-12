@@ -6,28 +6,40 @@ const { remote } = require("electron")
 const app = remote.app;
 const readDirAsync = promisify(fs.readdir);
 
-// picked cell
-let pick = null;
+// Image you want to paint on tiles
+let pickedImaged = null;
 
-const playerClick = ({currentTarget}) => {
-	pick = currentTarget;
-	console.log(pick)
+// Allow user to choose an image to paint on grid's cells
+const imageClickListener = ({currentTarget}) => {
+	pickedImaged = currentTarget;
+	console.log(pickedImaged)
+};
+
+const createImage = (imagePath) => {
+	const img = document.createElement('img')
+	img.setAttribute('src',imagePath)
+	img.addEventListener('click', imageClickListener)
+	return img
+}
+
+// Allow user to paint on the cliked tile
+const tileClickListener = ({currentTarget}) => {
+	if(pickedImaged){
+		if(currentTarget.hasChildNodes()){
+			currentTarget.childNodes[0].remove();
+			console.log('deleted')
+		}
+		currentTarget.appendChild(pickedImaged.cloneNode(true))
+		console.log('added')
+	}
+	console.log('finished')
 };
 
 const createCell = () => {
 	const cell = document.createElement('div')
 	cell.setAttribute('class','cell')
-	// replace innerText with img tag
-	// cell.innerText = 0;
-	cell.addEventListener('click', playerClick)
+	cell.addEventListener('click', tileClickListener)
 	return cell
-}
-
-const createImage = (imagePath) => {
-	const img = document.createElement('img')
-	img.setAttribute('src',imagePath)
-	img.addEventListener('click', playerClick)
-	return img
 }
 
 const drawTileManager = () => {
@@ -43,11 +55,10 @@ const drawImages = async () => {
 	const imageDir = path.join(app.getAppPath(), 'images');
 	const list = await readDirAsync(imageDir)
 	
-	console.log(sidebar);
 	list.forEach( imageName => {
 		const imagePath = path.join(app.getAppPath(), '/images/', imageName);
 		sidebar.appendChild(createImage(imagePath))
-	})	
+	})
 }
 
 document.addEventListener('DOMContentLoaded', () => {
