@@ -1,23 +1,11 @@
-const template = [
+const template = require('./template')
+
+const additionalMenu = [
     {
-        "label": "View",
-        "submenu": [
+        label: "Map",
+        submenu:[
             {
-                "label": "Toggle Full Screen",
-                "accelerator": (function () {
-                    if (process.platform == 'darwin')
-                        return 'Ctrl+Command+F';
-                    else
-                        return 'F11';
-                })(),
-                "click": function (item, focusedWindow) {
-                    if (focusedWindow) {
-                        focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
-                    }
-                }
-            },
-            {
-                label: 'Reload',
+                label: 'Save map',
                 accelerator: 'CmdOrCtrl+R',
                 click: function (item, focusedWindow) {
                     if (focusedWindow)
@@ -25,33 +13,26 @@ const template = [
                 }
             },
             {
-                label: 'Toggle Full Screen',
-                accelerator: (function () {
-                    if (process.platform == 'darwin')
-                        return 'Ctrl+Command+F';
-                    else
-                        return 'F11';
-                })(),
+                label: 'New map',
+                accelerator: 'CmdOrCtrl+R',
                 click: function (item, focusedWindow) {
                     if (focusedWindow)
-                        focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+                        focusedWindow.reload();
                 }
             },
             {
-                label: 'Toggle Developer Tools',
-                accelerator: (function () {
-                    if (process.platform == 'darwin')
-                        return 'Alt+Command+I';
-                    else
-                        return 'Ctrl+Shift+I';
-                })(),
+                label: 'Export map',
+                accelerator: 'CmdOrCtrl+R',
                 click: function (item, focusedWindow) {
                     if (focusedWindow)
-                        focusedWindow.toggleDevTools();
+                        focusedWindow.reload();
                 }
-            }
+            }            
         ]
     }
 ];
 
-module.exports = template;
+module.exports = [
+    ...template,
+    ...additionalMenu
+];

@@ -1,14 +1,12 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, Menu, MenuItem} = require('electron');
 const path = require('path');
+const mapEditor = require('./Menu/mapEditor')
 
 const dirUrl = app.getAppPath() ;
-const mainEntry = 'app.html';
-
-
 require('electron-reload')(dirUrl);
 
-app.on('ready', () =>{
-    const win = new BrowserWindow({
+const createWindow = () => {
+    const window = new BrowserWindow({
         width: 600, 
         height: 1400,
         show: false,
@@ -16,11 +14,26 @@ app.on('ready', () =>{
             nodeIntegration:true
         }
     });
+    window.maximize()
+    return window
+}
+
+const loadMapEditor = (window) => {
+    window.show()
+
+    const menu = Menu.buildFromTemplate(mapEditor);
+    Menu.setApplicationMenu(menu);
+
+    window.loadFile(path.join(dirUrl, 'mapEditor.html'))
+}
+
+const launchApp = () => {
     
-    win.maximize()
-    win.show()
-    win.loadFile(path.join(dirUrl, mainEntry))
-})
+    const window = createWindow();
+    loadMapEditor(window)    
+}
+
+app.on('ready', launchApp)
 
 app.on('window-all-closed', () =>{
     app.quit();
