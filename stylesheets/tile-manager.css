@@ -1,0 +1,14 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  grid-template-rows: repeat(18, 1fr);
+  gap: 3px;
+  padding: 5px; }
+  main > div.cell {
+    background-color: wheat;
+    border: 1px dashed black; }
+    main > div.cell > img {
+      max-height: 100%;
+      max-width: 100%; }
+  main > div.cell:hover {
+    border: 2px dashed red; }
