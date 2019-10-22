@@ -7,12 +7,23 @@ const app = remote.app;
 const readDirAsync = promisify(fs.readdir);
 
 // Image you want to paint on tiles
-let pickedImaged = null;
+let pickedImage = null;
+
+// Allow user to erase images painted on a cell
+const eraserClickListener = () => {
+	pickedImage = 'eraser';
+}
+
+
+const addEraser = () => {
+	const [eraser] = document.getElementsByClassName('eraser')
+	eraser.addEventListener('click', eraserClickListener)
+}
 
 // Allow user to choose an image to paint on grid's cells
 const imageClickListener = ({currentTarget}) => {
-	pickedImaged = currentTarget;
-	console.log(pickedImaged)
+	pickedImage = currentTarget;
+	console.log(pickedImage)
 };
 
 const createImage = (imagePath) => {
@@ -24,13 +35,15 @@ const createImage = (imagePath) => {
 
 // Allow user to paint on the cliked tile
 const tileClickListener = ({currentTarget}) => {
-	if(pickedImaged){
+	if(pickedImage){
 		if(currentTarget.hasChildNodes()){
 			currentTarget.childNodes[0].remove();
 			console.log('deleted')
 		}
-		currentTarget.appendChild(pickedImaged.cloneNode(true))
-		console.log('added')
+		if(pickedImage != 'eraser'){
+			currentTarget.appendChild(pickedImage.cloneNode(true))
+			console.log('added')
+		}
 	}
 	console.log('finished')
 };
@@ -52,16 +65,17 @@ const drawTileManager = () => {
 
 const drawImages = async () => {
 	const [sidebar] = document.getElementsByClassName('sidebar');
-	const imageDir = path.join(app.getAppPath(), 'images');
+	const imageDir = path.join(app.getAppPath(), 'data/tilesets/testset');
 	const list = await readDirAsync(imageDir)
 	
 	list.forEach( imageName => {
-		const imagePath = path.join(app.getAppPath(), '/images/', imageName);
+		const imagePath = path.join(app.getAppPath(), 'data/tilesets/testset/', imageName);
 		sidebar.appendChild(createImage(imagePath))
 	})
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+	addEraser();
 	drawTileManager();
 	drawImages();
 })
