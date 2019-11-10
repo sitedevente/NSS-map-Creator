@@ -40,8 +40,9 @@ build/Release
 node_modules/
 jspm_packages/
 
-#Sass
+#Preprocessor
 sass/
+pug/
 
 # TypeScript v1 declaration files
 typings/
