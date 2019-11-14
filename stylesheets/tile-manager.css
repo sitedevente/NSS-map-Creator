@@ -1,14 +1,38 @@
-main {
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+div#tile-manager {
+  padding: 1% 2%;
+  height: calc(100% - 64px);
   display: grid;
   grid-template-columns: repeat(32, 1fr);
   grid-template-rows: repeat(18, 1fr);
   gap: 3px;
-  padding: 5px; }
-  main > div.cell {
-    background-color: wheat;
-    border: 1px dashed black; }
-    main > div.cell > img {
-      max-height: 100%;
-      max-width: 100%; }
-  main > div.cell:hover {
-    border: 2px dashed red; }
+}
+
+.cell {
+  background-color: wheat;
+  border: 1px dashed black;
+}
+
+.cell>img {
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-user-drag: none;
+}
+
+.cell:hover {
+  border: 2px dashed red;
+}
+
+.modal#tilesets {
+  box-sizing: border-box;
+  width: 95vw;
+}
+
+.modal-fixed-footer#tilesets {
+  min-height: 90vh;
+  height: 95vh;
+}
