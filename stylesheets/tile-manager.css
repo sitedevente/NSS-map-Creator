@@ -36,3 +36,7 @@ div#tile-manager {
   min-height: 90vh;
   height: 95vh;
 }
+
+.modal-content .carousel-item {
+  top: -80px;
+}
