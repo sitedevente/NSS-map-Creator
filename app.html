@@ -1,1 +1,93 @@
-<html lang="fr"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><link rel="stylesheet" href="stylesheets/layout.css"/><link rel="stylesheet" href="stylesheets/tile-manager.css"/><link rel="stylesheet" href="stylesheets/materialize.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"/><title>NSS map creator</title></head><body><nav class="transparent z-depth-2"><h3 class="flow-text brand-logo purple-text center" style="margin-top: 10px;">NSS Map Creator</h3><div class="container"><ul><li class="black"><a class="tooltipped btn-floating btn-small modal-trigger z-depth-3 red darken-3" data-target="settings" data-tooltip="User settings"><i class="material-icons">settings_applications</i></a></li><li class="black"><a class="modal-trigger z-depth-3" data-target="tilesets">Change used tile</a></li></ul></div></nav><div class="modal modal-fixed-footer z-depth-2" id="tilesets"><div class="modal-content"><div class="valign-wrapper carousel" id="tileCarousel"><div class="carousel-item"><div class="card hoverable amber-text" style="margin-right:10px;width: 300px;"><div class="card-image"><img src="tileset/block/treetrunk.png" alt="tileset/block/bubble.png" style="width: 300px;"/><a class="btn-floating halfway-fab pulse pink" style="right:125px;"><i class="material-icons">favorite</i></a></div><div class="card-action grey darken-4"><button class="btn red">Delete</button><button class="btn green right">Use</button></div></div></div><div class="carousel-item"><div class="card hoverable amber-text" style="margin-right:10px;width: 300px;"><div class="card-image"><img src="tileset/block/bubble.png" alt="tileset/block/bubble.png" style="width: 300px;"/><a class="btn-floating halfway-fab pulse pink" style="right:125px;"><i class="material-icons">favorite</i></a></div><div class="card-action grey darken-4"><button class="btn red">Delete</button><button class="btn green right">Use</button></div></div></div><div class="carousel-item"><div class="card hoverable amber-text" style="margin-right:10px;width: 300px;"><div class="card-image"><img src="tileset/block/tree2.png" alt="tileset/block/bubble.png" style="width: 300px;"/><a class="btn-floating halfway-fab pulse pink" style="right:125px;"><i class="material-icons">favorite</i></a></div><div class="card-action grey darken-4"><button class="btn red">Delete</button><button class="btn green right">Use</button></div></div></div><div class="carousel-item"><div class="card hoverable amber-text" style="margin-right:10px;width: 300px;"><div class="card-image"><img src="tileset/item/seed.png" alt="tileset/block/bubble.png" style="width: 300px;"/><a class="btn-floating halfway-fab pulse pink" style="right:125px;"><i class="material-icons">favorite</i></a></div><div class="card-action grey darken-4"><button class="btn red">Delete</button><button class="btn green right">Use</button></div></div></div><div class="carousel-item"><div class="card hoverable amber-text" style="margin-right:10px;width: 300px;"><div class="card-image"><img src="tileset/wallpaper/grass_tile.png" alt="tileset/block/bubble.png" style="width: 300px;"/><a class="btn-floating halfway-fab pulse pink" style="right:125px;"><i class="material-icons">favorite</i></a></div><div class="card-action grey darken-4"><button class="btn red">Delete</button><button class="btn green right">Use</button></div></div></div></div></div><div class="modal-footer blue darken-2"><span class="left"><p class="flow-text">This modal can be called upon pressing SPACE button.</p></span><span class="right"><button class="modal-close btn btn-large green" id="confirm" data-trigger="tilesets">OK</button></span></div></div><div id="tile-manager"></div><script src="jquery.min.js"></script><script src="materialize.js"></script><script src="tileCarousel.js"></script><script src="tile-manager.js"></script></body></html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="stylesheets/layout.css" />
+        <link rel="stylesheet" href="stylesheets/tile-manager.css" />
+        <link rel="stylesheet" href="stylesheets/materialize.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+        <title>NSS map creator</title>
+    </head>
+
+    <body>
+        <nav class="transparent z-depth-2">
+            <h3 class="flow-text purple-text right">NSS Map Creator</h3>
+            <div class="container">
+                <ul>
+                    <li class="hoverable z-depth-2"><a
+                            class="tooltipped btn-floating btn-small modal-trigger red darken-3" data-target="settings"
+                            data-tooltip="User settings"><i class="material-icons">settings_applications</i></a></li>
+                    <li class="hoverable z-depth-2"><a class="black-text modal-trigger" data-target="tilesets">Change
+                            used tile</a></li>
+                    <li class="hoverable z-depth-2"><a class="red btn tileReseter">Pick the eraser</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="modal modal-fixed-footer z-depth-2" id="tilesets">
+            <div class="modal-content">
+                <div class="valign-wrapper carousel" id="tileCarousel">
+                    <div class="carousel-item">
+                        <div class="card hoverable amber-text" style="margin-right:10px;width: 300px;">
+                            <div class="card-image"><img src="tileset/block/treetrunk.png"
+                                    alt="tileset/block/bubble.png" style="width: 300px;" /><a
+                                    class="btn-floating halfway-fab pulse pink" style="right:125px;"><i
+                                        class="material-icons">favorite</i></a></div>
+                            <div class="card-action grey darken-4"><button class="btn red">Delete</button><button
+                                    class="btn green right">Use</button></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card hoverable amber-text" style="margin-right:10px;width: 300px;">
+                            <div class="card-image"><img src="tileset/block/bubble.png" alt="tileset/block/bubble.png"
+                                    style="width: 300px;" /><a class="btn-floating halfway-fab pulse pink"
+                                    style="right:125px;"><i class="material-icons">favorite</i></a></div>
+                            <div class="card-action grey darken-4"><button class="btn red">Delete</button><button
+                                    class="btn green right">Use</button></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card hoverable amber-text" style="margin-right:10px;width: 300px;">
+                            <div class="card-image"><img src="tileset/block/tree2.png" alt="tileset/block/bubble.png"
+                                    style="width: 300px;" /><a class="btn-floating halfway-fab pulse pink"
+                                    style="right:125px;"><i class="material-icons">favorite</i></a></div>
+                            <div class="card-action grey darken-4"><button class="btn red">Delete</button><button
+                                    class="btn green right">Use</button></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card hoverable amber-text" style="margin-right:10px;width: 300px;">
+                            <div class="card-image"><img src="tileset/item/seed.png" alt="tileset/block/bubble.png"
+                                    style="width: 300px;" /><a class="btn-floating halfway-fab pulse pink"
+                                    style="right:125px;"><i class="material-icons">favorite</i></a></div>
+                            <div class="card-action grey darken-4"><button class="btn red">Delete</button><button
+                                    class="btn green right">Use</button></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card hoverable amber-text" style="margin-right:10px;width: 300px;">
+                            <div class="card-image"><img src="tileset/wallpaper/grass_tile.png"
+                                    alt="tileset/block/bubble.png" style="width: 300px;" /><a
+                                    class="btn-floating halfway-fab pulse pink" style="right:125px;"><i
+                                        class="material-icons">favorite</i></a></div>
+                            <div class="card-action grey darken-4"><button class="btn red">Delete</button><button
+                                    class="btn green right">Use</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer blue darken-2"><span class="left">
+                    <p class="flow-text">This modal can be called upon pressing SPACE button.</p>
+                </span><span class="right"><button class="modal-close btn btn-large green" id="confirm"
+                        data-trigger="tilesets">OK</button></span></div>
+        </div>
+        <div id="tile-manager"></div>
+        <script src="jquery.min.js"></script>
+        <script src="materialize.js"></script>
+        <script src="tileCarousel.js"></script>
+        <script src="tile-manager.js"></script>
+    </body>
+
+</html>

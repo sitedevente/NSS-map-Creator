@@ -5,7 +5,12 @@ body {
   height: 100vh;
 }
 
-nav li a {
-  height: 100%;
-  margin: 0 0;
+nav h3 {
+  margin: 10px 10px 0px 0px;
+}
+
+nav li .btn {
+  padding: 10px !important;
+  height: 90% !important;
+  margin: 0 5px !important;
 }
